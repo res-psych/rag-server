@@ -1,5 +1,6 @@
 
 import os
+import time
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.responses import JSONResponse, HTMLResponse
 from openai import OpenAI
@@ -151,23 +152,68 @@ def ask(
     question: str = Form(...)
 ):
     try:
-        resp = client.responses.create(
-            model="gpt-4.1",
-            input=question,
-            tools=[{"type": "file_search", "vector_store_ids": [vector_store_id]}],
-            # To also get raw citations back, uncomment:
-            # include=["file_search_call.results"]
+        # 1) Create an assistant with file_search enabled
+        assistant = client.beta.assistants.create(
+            name="RAG Assistant",
+            instructions="You are a helpful assistant. Use the file search tool to answer questions based on the uploaded documents.",
+            model="gpt-4o-mini",
+            tools=[{"type": "file_search"}]
         )
 
-        # Extract assistant text from the structured response
-        answer_parts = []
-        for item in (resp.output or []):
-            if item.get("type") == "message":
-                for c in item.get("content", []):
-                    if c.get("type") == "output_text":
-                        answer_parts.append(c.get("text", ""))
+        # 2) Create a thread with the vector store attached
+        thread = client.beta.threads.create(
+            tool_resources={
+                "file_search": {
+                    "vector_store_ids": [vector_store_id]
+                }
+            }
+        )
 
-        answer = "\n".join(answer_parts).strip() or "(No answer text returned.)"
+        # 3) Add the user's question as a message
+        client.beta.threads.messages.create(
+            thread_id=thread.id,
+            role="user",
+            content=question
+        )
+
+        # 4) Run the assistant
+        run = client.beta.threads.runs.create(
+            thread_id=thread.id,
+            assistant_id=assistant.id
+        )
+
+        # 5) Wait for completion
+        while run.status in ["queued", "in_progress"]:
+            time.sleep(0.5)
+            run = client.beta.threads.runs.retrieve(
+                thread_id=thread.id,
+                run_id=run.id
+            )
+
+        # 6) Check for errors
+        if run.status == "failed":
+            raise Exception(f"Run failed: {run.last_error}")
+
+        # 7) Retrieve the assistant's response
+        messages = client.beta.threads.messages.list(thread_id=thread.id)
+
+        # Get the latest assistant message
+        answer = "(No answer text returned.)"
+        for msg in messages.data:
+            if msg.role == "assistant":
+                for content in msg.content:
+                    if content.type == "text":
+                        answer = content.text.value
+                        break
+                break
+
+        # 8) Clean up (delete assistant and thread to avoid clutter)
+        try:
+            client.beta.assistants.delete(assistant.id)
+            client.beta.threads.delete(thread.id)
+        except:
+            pass  # Cleanup is best-effort
+
         return JSONResponse({"answer": answer}, status_code=200)
     except Exception as e:
         raise HTTPException(500, str(e))
