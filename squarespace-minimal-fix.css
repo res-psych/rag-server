@@ -1,0 +1,89 @@
+/* ============================================
+   RESONANCE PSYCHIATRY - MINIMAL FIX
+   Simple color change: Blue → Purple (from logo)
+   ============================================ */
+
+/* Change all blues to purple */
+:root {
+  --brand: #5a4a6b !important;
+  --brand-dark: #4a3a5b !important;
+}
+
+/* Replace the blue button color with purple */
+.book-button,
+.btn,
+.btn--primary,
+.sqs-block-button-element--primary,
+.sqs-button-element--primary {
+  background: #5a4a6b !important;
+  color: #ffffff !important;
+}
+
+.book-button:hover,
+.btn:hover,
+.btn--primary:hover {
+  background: #4a3a5b !important;
+  color: #ffffff !important;
+}
+
+/* Make sure button text is white */
+.book-button,
+.book-button *,
+.btn,
+.btn *,
+.btn--primary,
+.btn--primary *,
+.sqs-block-button-element,
+.sqs-block-button-element * {
+  color: #ffffff !important;
+}
+
+/* Change link colors from blue to purple */
+a {
+  color: #5a4a6b !important;
+}
+
+a:hover {
+  color: #4a3a5b !important;
+}
+
+/* Navigation link spacing */
+.header-nav-item {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.header-nav-item a {
+  padding: 8px 12px !important;
+  color: #5a4a6b !important;
+}
+
+.header-nav-list {
+  gap: 12px !important;
+}
+
+/* Purple headings instead of blue */
+h2, h3, h4 {
+  color: #5a4a6b !important;
+}
+
+/* Form submit buttons */
+.form-submit-button,
+button[type="submit"] {
+  background-color: #5a4a6b !important;
+  color: #ffffff !important;
+}
+
+.form-submit-button:hover,
+button[type="submit"]:hover {
+  background-color: #4a3a5b !important;
+}
+
+/* Footer links */
+.footer-blocks a {
+  color: #5a4a6b !important;
+}
+
+.footer-blocks a:hover {
+  color: #4a3a5b !important;
+}
