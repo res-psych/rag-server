@@ -1,0 +1,382 @@
+/* ============================================
+   RESONANCE PSYCHIATRY - LAYOUT FIXES
+   Fixes broken grids and spacing issues
+   ============================================ */
+
+/* ===== FIX GRID SYSTEM ISSUES ===== */
+
+/* Fix complex 24-column desktop grid */
+.page-section .content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Simplify grid on smaller screens */
+@media (max-width: 768px) {
+  .sqs-layout {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+  }
+
+  .sqs-col-1,
+  .sqs-col-2,
+  .sqs-col-3,
+  .sqs-col-4,
+  .sqs-col-5,
+  .sqs-col-6,
+  .sqs-col-7,
+  .sqs-col-8,
+  .sqs-col-9,
+  .sqs-col-10,
+  .sqs-col-11,
+  .sqs-col-12 {
+    width: 100% !important;
+    grid-column: 1 / -1 !important;
+    margin-bottom: 20px;
+  }
+}
+
+/* ===== FIX RESPONSIVE SPACING ===== */
+
+/* Consistent section spacing */
+.page-section {
+  padding: 60px 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 40px 0 !important;
+  }
+}
+
+/* Fix row height calculations */
+.sqs-layout {
+  --row-height-scaling-factor: 1 !important;
+  row-gap: 20px !important;
+}
+
+/* ===== FIX FOOTER GRID ===== */
+
+.footer-blocks {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 30px !important;
+  padding: 40px 20px !important;
+}
+
+@media (max-width: 768px) {
+  .footer-blocks {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* Footer block alignment */
+.footer-block {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* ===== FIX CONTENT BLOCKS ===== */
+
+/* Prevent text overflow */
+.sqs-block-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Fix image containers */
+.sqs-block-image {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.sqs-block-image img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+}
+
+/* ===== FIX EMERGENCY/ALERT SECTIONS ===== */
+
+.emergency-section,
+.alert-banner,
+[class*="emergency"],
+[class*="alert"] {
+  padding: 20px !important;
+  margin: 20px 0 !important;
+  border-radius: 8px !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+  .emergency-section,
+  .alert-banner {
+    padding: 15px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ===== FIX CURRENT PATIENTS PAGE ===== */
+
+/* Fix stacked sections spacing */
+.sqs-block-content + .sqs-block-content {
+  margin-top: 40px !important;
+}
+
+/* Fix list spacing */
+.sqs-block-content ul,
+.sqs-block-content ol {
+  padding-left: 20px !important;
+  margin: 15px 0 !important;
+}
+
+.sqs-block-content li {
+  margin-bottom: 10px !important;
+  line-height: 1.6 !important;
+}
+
+/* ===== FIX BUTTON CONTAINERS ===== */
+
+.sqs-block-button-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 15px !important;
+  align-items: center !important;
+}
+
+@media (max-width: 768px) {
+  .sqs-block-button-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .sqs-block-button-element {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* ===== FIX FORM LAYOUTS ===== */
+
+.sqs-block-form {
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.form-wrapper {
+  padding: 20px !important;
+}
+
+.field-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.field-element {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ===== FIX COLUMN LAYOUTS ===== */
+
+/* Two-column layouts */
+.sqs-layout[data-layout-label*="Two"],
+.sqs-layout[data-layout-label*="two"] {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 30px !important;
+}
+
+@media (max-width: 768px) {
+  .sqs-layout[data-layout-label*="Two"],
+  .sqs-layout[data-layout-label*="two"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Three-column layouts */
+.sqs-layout[data-layout-label*="Three"],
+.sqs-layout[data-layout-label*="three"] {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .sqs-layout[data-layout-label*="Three"],
+  .sqs-layout[data-layout-label*="three"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== FIX NAVIGATION SPACING ===== */
+
+.header-nav {
+  gap: 20px !important;
+}
+
+.header-nav-item {
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .header-nav-item {
+    width: 100% !important;
+    text-align: left !important;
+  }
+}
+
+/* ===== FIX SUMMARY BLOCKS (Cards/Listings) ===== */
+
+.summary-block-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 30px !important;
+}
+
+@media (max-width: 768px) {
+  .summary-block-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.summary-item {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ===== FIX ACCORDION/COLLAPSIBLE SECTIONS ===== */
+
+.accordion-item,
+.collapsible-content {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ===== FIX TEXT ALIGNMENT ===== */
+
+/* Center-align headings on all pages except homepage */
+body:not(.homepage) h1,
+body:not(.homepage) h2 {
+  text-align: center !important;
+  margin-bottom: 30px !important;
+}
+
+/* Reset alignment for content within sections */
+.sqs-block-content p,
+.sqs-block-content li {
+  text-align: left !important;
+}
+
+/* ===== FIX HORIZONTAL OVERFLOW ===== */
+
+/* Prevent horizontal scrolling */
+body,
+html {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.sqs-layout,
+.page-section,
+.content-wrapper {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* ===== FIX CHARMBOT / WIDGET POSITIONING ===== */
+
+/* Ensure chat widgets don't overlap content */
+#charmbot-widget,
+[class*="chat-widget"],
+[class*="chatbot"] {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  max-width: 90% !important;
+}
+
+@media (max-width: 768px) {
+  #charmbot-widget,
+  [class*="chat-widget"] {
+    bottom: 10px !important;
+    right: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+}
+
+/* ===== FIX VIDEO EMBEDS ===== */
+
+.sqs-block-video,
+.video-block {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.sqs-block-video iframe,
+.video-block iframe {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+}
+
+/* ===== FIX GALLERY LAYOUTS ===== */
+
+.sqs-gallery {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .sqs-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== GENERAL SPACING IMPROVEMENTS ===== */
+
+/* Add breathing room to content */
+.sqs-block {
+  margin-bottom: 30px !important;
+}
+
+/* Consistent padding for content blocks */
+.sqs-block-content {
+  padding: 10px 0 !important;
+}
+
+/* ===== FIX TABLET BREAKPOINT (768px-1024px) ===== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Simplify grids on tablets */
+  .sqs-layout {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Reduce padding on tablets */
+  .page-section {
+    padding: 50px 20px !important;
+  }
+
+  /* Stack navigation if needed */
+  .header-nav {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}

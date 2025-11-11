@@ -1,0 +1,266 @@
+/* ============================================
+   RESONANCE PSYCHIATRY - CUSTOM CSS
+   Matches website to logo color scheme
+   ============================================ */
+
+/* ===== PRIMARY BRAND COLORS ===== */
+:root {
+  --brand-primary: #5a4a6b;      /* Muted plum from logo */
+  --brand-secondary: #6b5a7b;    /* Secondary purple */
+  --brand-light: #9d8db3;        /* Lighter purple for accents */
+  --brand-lighter: #c5b5d5;      /* Very light purple */
+  --text-dark: #2d2d3d;          /* Dark text from logo */
+  --text-medium: #5a5a5a;        /* Medium gray */
+  --bg-light: #fafaf8;           /* Warm off-white background */
+  --bg-cream: #f5f5f0;           /* Cream background */
+}
+
+/* ===== GLOBAL BACKGROUND ===== */
+body {
+  background-color: var(--bg-light) !important;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+.header-title-logo a,
+.header-nav-item a,
+.header-menu-nav-item a {
+  color: var(--brand-primary) !important;
+}
+
+.header-nav-item a:hover,
+.header-menu-nav-item a:hover {
+  color: var(--brand-secondary) !important;
+}
+
+/* Active navigation state */
+.header-nav-item--active a {
+  color: var(--brand-secondary) !important;
+  font-weight: 500;
+}
+
+/* ===== BUTTONS & CALLS TO ACTION ===== */
+.sqs-button-element--primary,
+.sqs-block-button-element,
+a.sqs-button-element {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.sqs-button-element--primary:hover,
+.sqs-block-button-element:hover {
+  background-color: var(--brand-secondary) !important;
+  border-color: var(--brand-secondary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(90, 74, 107, 0.3);
+}
+
+/* Secondary buttons */
+.sqs-button-element--secondary {
+  background-color: transparent !important;
+  border: 2px solid var(--brand-primary) !important;
+  color: var(--brand-primary) !important;
+}
+
+.sqs-button-element--secondary:hover {
+  background-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+}
+
+/* ===== HEADINGS ===== */
+h1, .sqsrte-large {
+  color: var(--text-dark) !important;
+  font-weight: 500;
+}
+
+h2, h3, h4 {
+  color: var(--brand-primary) !important;
+  font-weight: 500;
+}
+
+h5, h6 {
+  color: var(--brand-secondary) !important;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: var(--brand-primary) !important;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--brand-secondary) !important;
+}
+
+/* Body text links with underline */
+.sqs-block-content a:not(.sqs-button-element) {
+  color: var(--brand-primary) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--brand-light);
+  text-underline-offset: 2px;
+}
+
+.sqs-block-content a:not(.sqs-button-element):hover {
+  color: var(--brand-secondary) !important;
+  text-decoration-color: var(--brand-secondary);
+}
+
+/* ===== SECTIONS & CONTAINERS ===== */
+.page-section {
+  background-color: #ffffff;
+}
+
+.page-section:nth-child(even) {
+  background-color: var(--bg-cream);
+}
+
+/* Featured sections */
+.section-background-overlay {
+  background-color: var(--brand-primary) !important;
+}
+
+/* ===== FOOTER ===== */
+.footer-blocks {
+  background-color: var(--bg-cream) !important;
+}
+
+.footer-blocks h3,
+.footer-blocks h4 {
+  color: var(--brand-primary) !important;
+}
+
+.footer-blocks p,
+.footer-blocks li {
+  color: var(--text-medium) !important;
+}
+
+.footer-blocks a {
+  color: var(--brand-secondary) !important;
+}
+
+.footer-blocks a:hover {
+  color: var(--brand-primary) !important;
+}
+
+/* ===== FORMS ===== */
+.field-element,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  border: 2px solid var(--brand-light) !important;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.field-element:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--brand-primary) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 74, 107, 0.1);
+}
+
+.form-submit-button {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.form-submit-button:hover {
+  background-color: var(--brand-secondary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(90, 74, 107, 0.3);
+}
+
+/* ===== ACCENT ELEMENTS ===== */
+.sqs-block-horizontalrule hr {
+  border-color: var(--brand-light) !important;
+  opacity: 0.4;
+}
+
+blockquote {
+  border-left: 4px solid var(--brand-primary) !important;
+  background-color: var(--bg-cream);
+  padding: 20px;
+  color: var(--text-medium);
+  font-style: italic;
+}
+
+/* ===== CARDS & BOXES ===== */
+.sqs-block-summary-v2 .summary-item {
+  border: 1px solid rgba(90, 74, 107, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.sqs-block-summary-v2 .summary-item:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 16px rgba(90, 74, 107, 0.1);
+  transform: translateY(-4px);
+}
+
+/* ===== EMERGENCY BANNER (if exists) ===== */
+.emergency-banner,
+.alert-banner {
+  background-color: #fff5f5 !important;
+  border-left: 4px solid #e74c3c !important;
+  color: #c0392b !important;
+}
+
+/* ===== ICONS & DECORATIVE ELEMENTS ===== */
+.sqs-svg-icon--wrapper {
+  color: var(--brand-primary) !important;
+}
+
+/* Social icons */
+.sqs-svg-icon--social {
+  color: var(--brand-secondary) !important;
+}
+
+.sqs-svg-icon--social:hover {
+  color: var(--brand-primary) !important;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .header-nav-item a {
+    color: var(--brand-primary) !important;
+    padding: 12px 0;
+  }
+
+  .mobile-nav-toggle-label {
+    color: var(--brand-primary) !important;
+  }
+}
+
+/* ===== ADDITIONAL POLISH ===== */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color to match brand */
+::selection {
+  background-color: var(--brand-light);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: var(--brand-light);
+  color: #ffffff;
+}
+
+/* Focus outlines for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--brand-primary);
+  outline-offset: 2px;
+}
