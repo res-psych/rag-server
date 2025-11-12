@@ -1,0 +1,83 @@
+/* ============================================
+   RESONANCE PSYCHIATRY - SIMPLE COLOR FIX ONLY
+   Changes blue to purple - KEEPS all your existing styling
+   ============================================ */
+
+/* Change blue buttons to purple with WHITE text */
+.book-button,
+.btn,
+.btn--primary,
+.sqs-button-element--primary,
+.sqs-block-button-element,
+button[type="submit"],
+.form-submit-button {
+  background: #5a4a6b !important;
+  color: #ffffff !important;
+}
+
+.book-button:hover,
+.btn:hover,
+.btn--primary:hover,
+.sqs-button-element--primary:hover,
+.sqs-block-button-element:hover,
+button[type="submit"]:hover {
+  background: #4a3a5b !important;
+  color: #ffffff !important;
+}
+
+/* Make sure ALL button text is white */
+.book-button *,
+.btn *,
+.btn--primary *,
+.sqs-button-element--primary *,
+.sqs-block-button-element *,
+button[type="submit"] *,
+.form-submit-button * {
+  color: #ffffff !important;
+}
+
+/* Change blue links to purple */
+a {
+  color: #5a4a6b !important;
+}
+
+a:hover {
+  color: #4a3a5b !important;
+}
+
+/* Purple headings instead of blue */
+h2, h3, h4 {
+  color: #5a4a6b !important;
+}
+
+/* Navigation spacing - just add gaps */
+.header-nav-item {
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+}
+
+.header-nav-item a {
+  padding: 8px 12px !important;
+  color: #5a4a6b !important;
+}
+
+/* Footer links purple */
+.footer-blocks a {
+  color: #5a4a6b !important;
+}
+
+.footer-blocks a:hover {
+  color: #4a3a5b !important;
+}
+
+/* Form buttons purple */
+.form-submit-button,
+button[type="submit"] {
+  background: #5a4a6b !important;
+  color: #ffffff !important;
+}
+
+.form-submit-button:hover,
+button[type="submit"]:hover {
+  background: #4a3a5b !important;
+}
